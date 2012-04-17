@@ -4,6 +4,7 @@ Title: Input/Output functions for the SWAT hydrological model
 Version: 0.1-6-1
 Date: 2012-04-17
 Author: Mauricio Zambrano-Bigiarini
+Author@R: c(person("Mauricio", "Zambrano-Bigiarini", email = "mzb.devel@gmail.com", role=c("aut", "cre") ) )
 Maintainer: Mauricio Zambrano-Bigiarini <mzb.devel@gmail.com>
 Description: Package for reading the main output files of the Soil & Water Assessment Tool hydrological model (SWAT, http://www.brc.tamus.edu/swat/) and for creating some inputs to SWAT-CUP (http://www.eawag.ch/forschung/siam/software/swat/). Reading functions are particulary efficient for large output files (hundreds of Mb)
 License: GPL (>=2)
