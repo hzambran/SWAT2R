@@ -1,0 +1,13 @@
+Package: SWAT2R
+Type: Package
+Title: Input/Output functions for the SWAT hydrological model
+Version: 0.1-6-1
+Date: 2012-04-17
+Author: Mauricio Zambrano-Bigiarini
+Maintainer: Mauricio Zambrano-Bigiarini <mzb.devel@gmail.com>
+Description: Package for reading the main output files of the Soil & Water Assessment Tool hydrological model (SWAT, http://www.brc.tamus.edu/swat/) and for creating some inputs to SWAT-CUP (http://www.eawag.ch/forschung/siam/software/swat/). Reading functions are particulary efficient for large output files (hundreds of Mb)
+License: GPL (>=2)
+Depends: R (>= 2.9.0), zoo, hydroTSM, Hmisc, foreign
+Imports: hydroGOF
+URL: http://www.rforge.net/SWAT2R/
+LazyLoad: yes

@@ -1,0 +1,129 @@
+############
+# v 0.1.6  #
+############
+Release Date: 16-Apr-2012
+
+*) Updated e-mail address
+*) name of the 'read.out.rch' function was changed to 'read_rch'
+*) name of the 'read.out.sub' function was changed to 'read.sub'
+*) name of the 'read.out.hru' function was changed to 'read.hru'
+*) name of the 'read.out.rsv' function was changed to 'read.rsv'
+*) name of the 'read.qout' function was changed to 'read_qout'
+*) name of the 'read.aut' function was changed to 'read_aut'
+*) name of the 'read.95ppu' function was changed to 'read_95ppu'
+*) name of the 'read.autocal' function was changed to 'read_autocal'
+*) 'read_rch': new arguments: 'col.names', 'Date.Ini', 'Date.Fin', 'date.fmt'
+*) 'read_sub': new arguments: 'col.names', 'Date.Ini', 'Date.Fin', 'date.fmt'
+*) 'read_hru': new arguments: 'col.names', 'Date.Ini', 'Date.Fin', 'date.fmt'
+*) 'read_rsv': new arguments: 'col.names', 'Date.Ini', 'Date.Fin', 'date.fmt'
+
+Removed Functions:
+-) cms2mm        : probably, it will be moved to the 'hydroTSM' package
+-) diy           : already existing in the 'hydroTSM' package
+-) df2swat       : only valid for some particular case (Ebro)
+-) TmeanElev2Tmax: only valid for some particular case (Ebro)
+-) TmeanElev2Tmin: only valid for some particular case (Ebro)
+
+
+
+
+############
+# v 0.1.5  #
+############
+Release Date: 17-May-2011
+
+*) All the R functions were splited up into individual files.
+
+Removed Functions:
+*) qbeh2ecdf : it was moved to the 'hydroPSO' package
+*) wquantile : it was moved to the 'hydroPSO' package
+*) plotparam : it was moved to the 'hydroPSO' package
+*) read.param: it was moved to the 'hydroPSO' package
+
+Modified functions:
+*) read.qout  : -) Now it can be used for reading the 'hydroPSO' and 'Nimbus' files
+*) read.param : -) Now it can be used for reading the 'hydroPSO' and 'Nimbus' files
+*) qbeh2ecdf  : -) The ECDFs are returned in a list
+		-) New argument: 'cex.lab'
+		-) New argument: 'cex.axis'
+
+
+############
+# v 0.1.4  #
+############
+Release Date: 30-Nov-2010
+
+*) All the R functions were splited up into individual files.
+
+Added Functions:
+*) 'plot2parOF'   : for two user-defined parameters, it plots the values of the objective funtion in a two dimensional box, where the boundaries of each parameter are used as axis.
+*) 'plotNparOF'   : for 'n' user-defined parameters, it produces 'plot2parOF' plots, with the values of the objective function for all the posible pairs of parameters 
+*) 'plotNparLines': it plots the value of each parameter and the objective function against the iteration number.
+
+Modified functions:
+*) obs2swatcup : -) New arguments: 'version', 'var.id' needed for compatibility with SWAT-CUP version 3
+*) qbeh2ecdfs  : -) New argument: 'leg.cex'
+
+
+############
+# v 0.1.3  #
+############
+Release Date: 08-Jul-2010
+
+Added Functions:
+*) 'plotparam'    : It makes dotty plots of different parameter values vs the corresponding objective function value (usually for plotting the efficiencies of different parameter sets).
+*) 'read.goalsf2' : It reads the files 'modelpara.out' and 'modelpara.beh' created by the GLUE algorithm of SWAT-CUP', and the 'goal.sf2' file created by the SUFI-2 algorithm of SWAT-CUP.
+*) 'read.95ppusf2': It reads the SWAT-CUP file '95ppu.sf2' , which contains the 95% of predictive uncertainty corresponding to the behavioural parameter sets, with optional plot.
+*) 'read.qout '   : It reads the SWAT-CUP file (by default 'q1.out')  with the simulated streamflows for all the parameter sets.
+*) 'qbeh2ecdfs'   : It computes ECDFs for user-defined quantiles of the streamflows simulated with behavioural parameter sets.
+*) 'wquantile'    : It computes weighted quantiles of each column of a matrix/data.frame
+
+Modified functions:
+*) read.out.rch: -) Valid values for the argument 'tstep' were changed from c('Daily', 'Monthly', 'Annual') to c('daily', 'monthly', 'annual').
+                 -) The argument 'drty' was replaced by 'file', because it is more intuitive for R users.
+                 -) New argument: 'rchID'.
+                 -) New argument: 'verbose'   
+*) read.out.sub: -) Valid values for the argument 'tstep' were changed from c('Daily', 'Monthly', 'Annual') to c('daily', 'monthly', 'annual').
+                 -) The argument 'drty' was replaced by 'file', because it is more intuitive for R users.
+                 -) New argument: 'subID'.
+                 -) New argument: 'verbose' 
+*) read.out.hru: -) Valid values for the argument 'tstep' were changed from c('Daily', 'Monthly', 'Annual') to c('daily', 'monthly', 'annual').   
+                 -) The argument 'drty' was replaced by 'file', because it is more intuitive for R users.
+                 -) New argument: 'hruID'.
+                 -) New argument: 'verbose'            
+*) read.out.rsv: -) Valid values for the argument 'tstep' were changed from c('Daily', 'Monthly', 'Annual') to c('daily', 'monthly', 'annual').
+*) read.autocal: -) Valid values for the argument 'tstep' were changed from c('Daily', 'Monthly', 'Annual') to c('daily', 'monthly', 'annual').
+                 -) The arguments 'drty' and 'fname' were replaced by 'file', because it is more intuitive for R users.
+                 -) New argument: 'outID'.
+                 -) New argument: 'verbose' 
+*) read.aXX.aut: -) Valid values for the argument 'tstep' were changed from c('Daily', 'Monthly', 'Annual') to c('daily', 'monthly', 'annual').
+
+
+
+
+
+############
+# v 0.1.2  #
+############
+Release Date: 01-Dec-2009
+
+Modified functions:
+-) 'df2swat': -) The arguments 'Date' and 'date.fmt' were added as parametes of this function for allowing explicit definition of those fields in 'x.ts' (before 'Date' and '%Y-%m-%d' were used)
+              -) The arguments 'id' and 'elevation' were added as parametes of this function for allowing explicit definition of those fields in 'x.gis' (before 'INDICATIVO' and 'ELEVATION' were used)
+              -) The argument 'x.ts.filename' was cahnged by 'x.ts' (a data.frame insteas of a character with the filename)
+              -) The argument 'x.gis.filename' was cahnged by 'x.gis' (a data.frame insteas of a character with the filename)
+
+
+############
+# v 0.1.1  #
+############
+*) Release Date: 28-Oct-2009
+
+Added functions: 
+*) 'obs2swatcup': it generates a file with observed values of streamflows for being used as input to SWAT-CUP
+
+
+############
+# v 0.1.0  #
+############ 
+-) Release Date: 02-Oct-2009.

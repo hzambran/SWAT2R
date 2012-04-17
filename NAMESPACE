@@ -1,0 +1,7 @@
+#importFrom("hydroTSM", hydroplot, hydropairs, dip, mip, yip, vector2zoo)
+importFrom("hydroGOF", plotbands)
+importFrom("Hmisc", wtd.quantile, wtd.Ecdf)
+#import(grid)
+#importFrom("scatterplot3d", scatterplot3d)
+exportPattern("^[^\\.]")
+
