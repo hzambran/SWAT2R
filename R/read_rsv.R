@@ -14,24 +14,27 @@
 ########################################################################
 # Started: Apr-2009;                                                   #
 # Updates: 02-Oct-2009 ; 22-Jan-2011                                   #
-#          16-Apr-2012                                                 #
+#          16-Apr-2012 ; 08-Aug-2012                                   #
 ########################################################################
 
 # 
 
 # 'drty': Directory where is located the file that have to be read
 # 'tstep'  : Time step used for the simulation that created the 'output.rsv' file.
-#                Must be one of the following values: c("Daily", "Monthly", "Annual"), 
-#                stands for daily, monthly and annual times steps
+#            Must be one of the following values: c("daily", "monthly", "annual"), 
+#            stands for daily, monthly and annual times steps
 # 'out.type': Type of results that have to be read
 #                Must be one of the following values: 
 #               -) "Q"       : only results related to water quantity are read (first 8 columns)
-#                              c("RCH", "GIS", "MON", "DrAREAkm2", 
-#                                "FLOW_INcms", "FLOW_OUTcms", "EVAPcms", "TLOSScms")
+#                              c("RES", "MON", 
+#                                "VOLUMEm3", "FLOW_INcms", "FLOW_OUTcms", "PRECIPm3", "EVAPm3",
+#                                "SEEPAGEm3")
 #               -) "Q+Sed"   : only results related to water quantity AND sediments are read (first 11 columns)
-#                               c("RCH", "GIS", "MON", "DrAREAkm2", "FLOW_INcms", "FLOW_OUTcms", 
-#                                 "EVAPcms", "TLOSScms", "SED_INtons", "SED_OUTtons", "SEDCONCmg/kg")
-#               -) "Q+Sed+WQ": all the columns of the 'output.rch' are read 
+#                               c("RES", "MON", 
+#                                "VOLUMEm3", "FLOW_INcms", "FLOW_OUTcms", "PRECIPm3", "EVAPm3",
+#                                "SEEPAGEm3", 
+#                                "SED_INtons", "SED_OUTtons", "SED_CONCppm" )
+#               -) "Q+Sed+WQ": all the columns of the 'output.rsv' are read 
 # 'rchID'      : OPTIONAL. Integer with the number of the reach for wich the results will be provided.
 #                If this argument is not provided, the results will be given for all the reaches in 'output.rch'
 
@@ -110,7 +113,7 @@ read_rsv <- function(file="output.rsv",
       # Reading only the 11 variables related to water quantity and sediments
       rsv <- read.fortran(file, header=FALSE, skip=9, c("6X", "I8", "F5", "6F12", "3F12"))    
       # Assigning the the complete list of names
-      colnames(rsv) <- rsv.names[1:43]
+      colnames(rsv) <- rsv.names[1:11]
     } else if (out.type=="Q+Sed+WQ") {
         # Reading ALL the outputs 
         rsv <- read.fortran(file, header=FALSE, skip=9, c("6X", "I8", "F5", "6F12", "3F12", "32F12"))    

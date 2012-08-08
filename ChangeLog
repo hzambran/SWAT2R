@@ -1,4 +1,11 @@
 ############
+# v 0.1.7  #
+############
+Release Date: 08-Aug-2012
+
+*) 'read_rsv': bug fixed when 'out.type="Q+Sed" (thanks to  somebody [at] gmx.us !)
+
+############
 # v 0.1.6  #
 ############
 Release Date: 16-Apr-2012
