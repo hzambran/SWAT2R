@@ -17,7 +17,7 @@
 # Started    : 27-Feb-2009                                             #
 # Updates    : 02-Oct-2009                                             #
 #              22-Jan-2011 at JRC                                      #
-#              17-Apr-2012 at JRC                                      #
+#              17-Apr-2012 at JRC ; 09-Aug-2012                        #
 ########################################################################
 
 # The last (additional) rows have the average value for each subbasin during all the time period
@@ -150,6 +150,18 @@ read_hru <- function(file="output.hru",
     if ( length(non.int) > 0 ) {       
       stop("Invalid argument: 'hruID' must be integer" ) 
     } else hru <- hru[hru$HRU == hruID, ]
+    
+    #############################
+    # numeric -> zoo
+    if ( (length(hruID)==1) & (!missing(Date.Ini) & !missing(Date.Fin)) ) {
+      if (tstep=="daily") {
+        dates <- hydroTSM::dip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+        } else if (tstep=="monthly") {
+           dates <- hydroTSM::mip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+           } else if (tstep=="annual") dates <- hydroTSM::yip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+      hru <- zoo::zoo(hru, dates)
+    } # IF end
+    
   } # IF end
   
   #############################
@@ -160,17 +172,6 @@ read_hru <- function(file="output.hru",
    
     # Getting only the colum(s) defined by the user
     hru <- hru[, col.names]
-  } # IF end
- 
-  #############################
-  # transforming from numeric to zoo
-  if (!missing(Date.Ini) & !missing(Date.Fin)) {
-    if (tstep=="daily") {
-      dates <- hydroTSM::dip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-      } else if (tstep=="monthly") {
-         dates <- hydroTSM::mip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-         } else if (tstep=="annual") dates <- hydroTSM::yip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-    hru <- hydroTSM::vector2zoo(x=hru, dates=dates)
   } # IF end
   
   return(hru)

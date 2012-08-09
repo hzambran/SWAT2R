@@ -19,7 +19,7 @@
 # Started    : 25-Feb-2009 at UT                                       #
 # Updates    : 02-Oct-2009 at UT                                       #
 #              22-Jan-2011 at JRC                                      #
-#              16-Apr-2012 at JRC                                      #
+#              16-Apr-2012 at JRC ; 09-Aug-2012                        #
 ########################################################################
 
 # This file has 9 rows representing the header, and 1 colum with the 'REACH' text and
@@ -153,6 +153,18 @@ read_rch <- function(file="output.rch",
     if ( length(non.int) > 0 ) {      
       stop("Invalid argument: 'rchID' must be integer" ) 
     } else rch <- rch[rch$RCH == rchID, ]
+    
+    #############################
+    # numeric -> zoo
+    if ( (length(rchID)==1) & (!missing(Date.Ini) & !missing(Date.Fin)) ) {
+      if (tstep=="daily") {
+        dates <- hydroTSM::dip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+        } else if (tstep=="monthly") {
+           dates <- hydroTSM::mip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+           } else if (tstep=="annual") dates <- hydroTSM::yip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+      rch <- zoo::zoo(rch, dates)
+    } # IF end
+    
   } # IF end
   
   #############################
@@ -163,16 +175,6 @@ read_rch <- function(file="output.rch",
    
     # Getting only the colum(s) defined by the user
     rch <- rch[, col.names]
-  } # IF end
- 
-  # transforming from numeric to zoo
-  if (!missing(Date.Ini) & !missing(Date.Fin)) {
-    if (tstep=="daily") {
-      dates <- hydroTSM::dip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-      } else if (tstep=="monthly") {
-         dates <- hydroTSM::mip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-         } else if (tstep=="annual") dates <- hydroTSM::yip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-    rch <- hydroTSM::vector2zoo(x=rch, dates=dates)
   } # IF end
   
   return(rch)

@@ -41,10 +41,12 @@ Time step used for the simulation that created the \sQuote{output.rsv} file. \cr
 It must be one of the following values: c("daily", "monthly", "annual"), 
 }
   \item{Date.Ini}{
-OPTIONAL. character with the starting date for the results that are stored in \code{file}
+OPTIONAL, only used when \code{rsvID} is provided AND it is a unique number. \cr
+character with the starting date for the results that are stored in \code{file}, which is used to provide a zoo object as output.
 }
   \item{Date.Fin}{
-OPTIONAL. character with the ending date for the results that are stored in \code{file}
+OPTIONAL, only used when \code{rsvID} is provided AND it is a unique number. \cr
+character with the ending date for the results that are stored in \code{file}, which is used to provide a zoo object as output.
 }
   \item{date.fmt}{
 character, with the format used to define \code{Date.Ini}, \code{Date.Fin}. See 'format' in 'as.Date'.

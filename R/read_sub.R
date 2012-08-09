@@ -14,7 +14,7 @@
 ########################################################################
 # Started: 02-Mar-2009;                                                #
 # Updates: 02-Oct-2009 ; 22-Jan-2011                                   #
-#          17-Apr-2012                                                 #
+#          17-Apr-2012 ; 09-Aug-2012                                   #
 ########################################################################
 
 # The last (additional) rows have the average value for each subbasin during all the time period
@@ -122,6 +122,18 @@ read_sub <- function(file="output.sub",
     if ( length(non.int) > 0 ) {      
       stop("Invalid argument: 'subID' must be integer" ) 
     } else sub <- sub[sub$SUB == subID, ]
+    
+    #############################
+    # numeric -> zoo
+    if ( (length(subID)==1) & (!missing(Date.Ini) & !missing(Date.Fin)) ) {
+      if (tstep=="daily") {
+        dates <- hydroTSM::dip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+        } else if (tstep=="monthly") {
+           dates <- hydroTSM::mip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+           } else if (tstep=="annual") dates <- hydroTSM::yip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+      sub <- zoo::zoo(sub, dates)
+    } # IF end
+    
   } # IF end
   
   #############################
@@ -132,17 +144,6 @@ read_sub <- function(file="output.sub",
    
     # Getting only the colum(s) defined by the user
     sub <- sub[, col.names]
-  } # IF end
- 
-  #############################
-  # transforming from numeric to zoo
-  if (!missing(Date.Ini) & !missing(Date.Fin)) {
-    if (tstep=="daily") {
-      dates <- hydroTSM::dip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-      } else if (tstep=="monthly") {
-         dates <- hydroTSM::mip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-         } else if (tstep=="annual") dates <- hydroTSM::yip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-    sub <- hydroTSM::vector2zoo(x=sub, dates=dates)
   } # IF end
   
   return(sub)

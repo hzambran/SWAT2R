@@ -14,7 +14,7 @@
 ########################################################################
 # Started: Apr-2009;                                                   #
 # Updates: 02-Oct-2009 ; 22-Jan-2011                                   #
-#          16-Apr-2012 ; 08-Aug-2012                                   #
+#          16-Apr-2012 ; 08-Aug-2012 ; 09-Aug-2012                     #
 ########################################################################
 
 # 
@@ -138,11 +138,23 @@ read_rsv <- function(file="output.rsv",
   if (tstep == "annual") {
     rsv <- rsv[rsv$MON > 1900, ] }   
     
-  # If the user provided a reservoir numer, only those results will be returned to the user  
+  # If the user provided a reservoir number, only those results will be returned to the user  
   if ( !missing(rsvID) ) {
     if ( rsvID != floor(rsvID) ) {      
       stop("Invalid argument: 'rsvID' must be integer" ) 
     } else rsv <- rsv[rsv$RES == rsvID, ]
+    
+    #############################
+    # numeric -> zoo
+    if ( (length(rsvID)==1) & (!missing(Date.Ini) & !missing(Date.Fin)) ) {
+      if (tstep=="daily") {
+        dates <- hydroTSM::dip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+        } else if (tstep=="monthly") {
+           dates <- hydroTSM::mip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+           } else if (tstep=="annual") dates <- hydroTSM::yip(Date.Ini, Date.Fin, date.fmt=date.fmt)
+      rsv <- zoo::zoo(rsv, dates)
+    } # IF end
+    
   } # IF end
   
   #############################
@@ -153,17 +165,6 @@ read_rsv <- function(file="output.rsv",
    
     # Getting only the colum(s) defined by the user
     rsv <- rsv[, col.names]
-  } # IF end
- 
-  #############################
-  # transforming from numeric to zoo
-  if (!missing(Date.Ini) & !missing(Date.Fin)) {
-    if (tstep=="daily") {
-      dates <- hydroTSM::dip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-      } else if (tstep=="monthly") {
-         dates <- hydroTSM::mip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-         } else if (tstep=="annual") dates <- hydroTSM::yip(Date.Ini, Date.Fin, date.fmt=date.fmt)
-    rsv <- hydroTSM::vector2zoo(x=rsv, dates=dates)
   } # IF end
   
   return(rsv)

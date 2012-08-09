@@ -1,9 +1,21 @@
 ############
+# v 0.1.8  #
+############
+Release Date: 09-Aug-2012
+
+*) 'read_rsv': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  somebody [at] gmx.us !)
+*) 'read_rch': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  somebody [at] gmx.us !)
+*) 'read_hru': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  somebody [at] gmx.us !)
+*) 'read_sub': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  somebody [at] gmx.us !)
+
+
+############
 # v 0.1.7  #
 ############
 Release Date: 08-Aug-2012
 
 *) 'read_rsv': bug fixed when 'out.type="Q+Sed" (thanks to  somebody [at] gmx.us !)
+
 
 ############
 # v 0.1.6  #
@@ -30,8 +42,6 @@ Removed Functions:
 -) df2swat       : only valid for some particular case (Ebro)
 -) TmeanElev2Tmax: only valid for some particular case (Ebro)
 -) TmeanElev2Tmin: only valid for some particular case (Ebro)
-
-
 
 
 ############
