@@ -1,12 +1,19 @@
 ############
+# v 0.1.9  #
+############
+Release Date: 24-Aug-2012
+
+*) new function 'read_sed', only used in SWAT 2009 (thanks to  'Mikhail' !)
+
+############
 # v 0.1.8  #
 ############
 Release Date: 09-Aug-2012
 
-*) 'read_rsv': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  somebody [at] gmx.us !)
-*) 'read_rch': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  somebody [at] gmx.us !)
-*) 'read_hru': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  somebody [at] gmx.us !)
-*) 'read_sub': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  somebody [at] gmx.us !)
+*) 'read_rsv': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  'Mikhail' !)
+*) 'read_rch': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  'Mikhail' !)
+*) 'read_hru': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  'Mikhail' !)
+*) 'read_sub': bug fixed when using 'Date.Ini' and 'Date.Fin' (thanks to  'Mikhail' !)
 
 
 ############
@@ -14,7 +21,7 @@ Release Date: 09-Aug-2012
 ############
 Release Date: 08-Aug-2012
 
-*) 'read_rsv': bug fixed when 'out.type="Q+Sed" (thanks to  somebody [at] gmx.us !)
+*) 'read_rsv': bug fixed when 'out.type="Q+Sed" (thanks to  'Mikhail' !)
 
 
 ############
