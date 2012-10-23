@@ -1,6 +1,10 @@
 NEWS/ChangeLog for SWAT2R
 -------------------------
 
+0.1.10  (under-development)
+        o new Git repository, in order to make easier contributions from other users.
+          (thanks to 'Mikhail' !), 22-Oct-2012
+
 0.1.9   24-Aug-2012
         o new function 'read_sed', only used in SWAT 2009 (thanks to 'Mikhail' !)
 
@@ -40,7 +44,7 @@ NEWS/ChangeLog for SWAT2R
 
 
 0.1.5   17-May-2011
-        o All the R functions were splited up into individual files.
+        o All the R functions were split up into individual files.
 
         Removed Functions:
         o qbeh2ecdf : it was moved to the 'hydroPSO' package
