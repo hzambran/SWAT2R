@@ -8,13 +8,13 @@ citEntry(entry = "manual",
 	author = personList(person("Mauricio", "Zambrano-Bigiarini", email="mzb.devel@gmail.com", role=c("aut","cre"))),
 	year = year,
 	note = vers,
-	url = "http://CRAN.R-project.org/package=SWAT2R",
-        doi = "{zenodo}",
+	url = "https://github.com/hzambran/SWAT2R",
+        doi = "{https://doi.org/10.5281/zenodo.581671}",
 	textVersion = paste("Mauricio Zambrano-Bigiarini. (", year, ") ",
         "SWAT2R: Input/Output functions for pre- and post-processing SWAT (hydrological model) files in R",
         vers,
-        ". URL http://CRAN.R-project.org/package=SWAT2R",
-        ". DOI:",
+        ". URL https://github.com/hzambran/SWAT2R",
+        ". DOI:https://doi.org/10.5281/zenodo.581671",
         ".", sep = ""))
 
 #citFooter("I have invested a time and effort in creating SWAT2R, please cite it if you use it !")
