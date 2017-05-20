@@ -1,8 +1,8 @@
 Package: SWAT2R
 Type: Package
 Title: Input/Output functions for the SWAT hydrological model
-Version: 0.1-9
-Date: 2012-08-24
+Version: 0.1-11
+Date: 2017-05-20
 Author: Mauricio Zambrano-Bigiarini
 #Author@R: c(person("Mauricio", "Zambrano-Bigiarini", email = "mzb.devel@gmail.com", role=c("aut", "cre") ) )
 Maintainer: Mauricio Zambrano-Bigiarini <mzb.devel@gmail.com>

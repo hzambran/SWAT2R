@@ -1,9 +1,12 @@
 NEWS/ChangeLog for SWAT2R
 -------------------------
 
-0.1.10  (under-development)
+0.1.11  20-May-2017
+        o added TRAVIS CI compatibility
+
+0.1.10  22-Oct-2012
         o new Git repository, in order to make easier contributions from other users.
-          (thanks to 'Mikhail' !), 22-Oct-2012
+          (thanks to 'Mikhail' !), 
 
 0.1.9   24-Aug-2012
         o new function 'read_sed', only used in SWAT 2009 (thanks to 'Mikhail' !)
