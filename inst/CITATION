@@ -1,0 +1,20 @@
+citHeader("To cite SWAT2R in publications use:")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
+vers <- paste("R package version", meta$Version)
+
+citEntry(entry = "manual",
+	title = "SWAT2R: Input/Output functions for pre- and post-processing SWAT (hydrological model) files in R",
+	author = personList(person("Mauricio", "Zambrano-Bigiarini", email="mzb.devel@gmail.com", role=c("aut","cre"))),
+	year = year,
+	note = vers,
+	url = "http://CRAN.R-project.org/package=SWAT2R",
+        doi = "{zenodo}",
+	textVersion = paste("Mauricio Zambrano-Bigiarini. (", year, ") ",
+        "SWAT2R: Input/Output functions for pre- and post-processing SWAT (hydrological model) files in R",
+        vers,
+        ". URL http://CRAN.R-project.org/package=SWAT2R",
+        ". DOI:",
+        ".", sep = ""))
+
+#citFooter("I have invested a time and effort in creating SWAT2R, please cite it if you use it !")
